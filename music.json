@@ -1,0 +1,54 @@
+
+{
+    "album": [
+        {
+            "name": "Barter 6",
+            "genre": "Hip Hop"   ,
+            "artistName": "Young Thug"  ,
+            "relaseYear": "2015"  ,
+            "tracklist": [ "Constantly hating","With that", "Can’t tell" , "Check", "Never had it", "Dream", "Dome","Halftime", "Amazing", "Knocked off", "Od", "Numbers", "Just might be"]
+            
+        
+        
+        
+        },
+        
+        {
+            "name": "2014 Forest Hills Drive",
+            "genre": "Hip Hop"   ,
+            "artistName": "J. Cole"  ,
+            "relaseYear": "2014"   ,
+            "tracklist": ["intro", "January 28th", "Wet Dreamz", " ’03 Adolescence", "A Tale of 2 Citiez", "Fire Squad", "St. Tropez", "G.O.M.D", "Constantly hating","No Role Modelz","Constantly hating","Apparently", "Love Yourz" , "Note To Self" ]
+
+         
+        
+        
+        
+        },
+        {
+            "name": "Honest" ,
+            "genre": "Hip Hop"   ,
+            "artistName": "Fututre"  ,
+            "relaseYear": "2014"  , 
+            "tracklist": ["Look Ahead", "T-Shirt", "Move That Dope", "My Momma", "Honest", "I Won", "Never Satisfied", "I Be U", "Covered n Money", "Special", "Benz Friends","Blood, Sweat, Tear", "Big Rube Speaks", "Side Effects", "I'll Be Yours", "How Can I Not", "Sh!t", "Karate Chop"]
+           
+        
+        
+        
+        },
+        {
+            "name":"Starboy" , 
+            "genre": "R&B/Soul"   ,
+            "artistName": "The Weekend"  ,
+            "relaseYear": "2016"  ,
+            "tracklist": ["Starboy", "Party Monster", "False Alarm", "Reminder", "Rockin'","Secrets", "True Colors","Stargirl Interlude", "Sidewalks", "Six Feet Under", "Love to Lay", "A lonely Night", "Attention", "Ordinary Life", "Nothing Without You", "All I Know", "Die for You", "I Feel it Coming"]
+
+    
+        
+        
+        
+        }
+
+    ]
+}
+

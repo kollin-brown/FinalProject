@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<!-- animation-->
+<header><h1 class="block-effect" style="--td: 3s">
+  <div class="block-reveal" style="--bc: #581845; --d: .5s">Music</div>
+  <div class="block-reveal" style="--bc: #900C3F; --d: 1s">Favorites</div>
+</h1>
+
+<div class="tagline">
+  <p>Explore and Listen to Your Favorite Artist, Albums, and Generes.</p>
+</div>
+</header>
+<section>
+  <article>
+    <h1>Explore Music</h1>
+    <div class="contents">
+      <p> Seacrh Your Favorite Genere's for Playlist!
+      </p>
+     
+
+    </div>
+  </article>
+  <nav><h2>My Favorite Sounds</h2>
+
+    <body>
+
+<p>Click to see more info</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openArtist(event, 'Young Thug')">Young Thug</button>
+  <button class="tablinks" onclick="openArtist(event, 'The Weeknd')">The Weeknd</button>
+  <button class="tablinks" onclick="openArtist(event, 'Future')">Future</button>
+</div>
+
+<div id="Young Thug" class="tabcontent">
+  <h3>Young Thug</h3>
+  <table border="1">
+    <script type="text/javascript" src="data.js">console.log(data[0].name)</script>
+<tbody>
+<tr>
+<td>Barter 6</td>
+</tr>
+<tr>
+<td>2015</td>
+</tr>
+<tr>
+<td>Hip Hop</td>
+</tr>
+<tr>
+<td>"Constantly hating","With that", "Can’t tell" , "Check", "Never had it", "Dream", "Dome","Halftime", "Amazing", "Knocked off", "Od", "Numbers", "Just might be"</td>
+</tr>
+</tbody>
+</table>
+  
+</div>
+
+<div id="The Weeknd" class="tabcontent">
+  <h3>The Weeknd</h3>
+  <table border="1">
+<tbody>
+<tr>
+<td>Starboy</td>
+</tr>
+<tr>
+<td>2016</td>
+</tr>
+<tr>
+<td>R&B/Soul</td>
+</tr>
+<tr>
+<td>"Starboy", "Party Monster", "False Alarm", "Reminder", "Rockin'","Secrets", "True Colors","Stargir Interlude", "Sidewalks", "Six Feet Under", "Love to Lay", "A lonely Night", "Attention", "Ordinary Life", "Nothing Without You", "All I Know", "Die for You", "I Feel it Coming</td>
+</tr>
+</tbody>
+</table> 
+</div>
+
+<div id="Future" class="tabcontent">
+  <h3>Future</h3>
+  <table border="1">
+<tbody>
+<tr>
+<td>Honest</td>
+</tr>
+<tr>
+<td>Hip Hop</td>
+</tr>
+<tr>
+<td>2014</td>
+</tr>
+<tr>
+<td>"Look Ahead", "T-Shirt", "Move That Dope", "My Momma", "Honest", "I Won", "Never Satisfied", "I Be U", "Covered n Money", "Special", "Benz Friends","Blood, Sweat, Tear", "Big Rube Speaks", "Side Effects", "I'll Be Yours", "How Can I Not", "Sh!t", "Karate Chop"</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<script>
+function openArtist(evt, artistName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(artistName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+   
+</body>
+  </nav>
+  <aside><h2>Add Songs to Play Later</h2>
+  <body>
+
+    <input id="input1" type="text">
+    <input type='button' value='add' onclick="addToTheList()" />
+
+    <ul id="list">
+    </ul>
+    <script type="text/javascript">
+      function addToTheList() {
+        var u = document.getElementById("input1").value;
+        document.getElementById("list").innerHTML += ("<li>" + u + "</li>");
+      }
+
+    </script>
+  </body>
+    <div id="to_play_list"> </div>
+    
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin>
+   </script>  
+     <script src=toListen.js">
+
+    class TodoList extends React.Component {
+      render() {
+        return (
+          <ul>
+            {this.props.items.map(item => (
+              <li key={item.id}>{item.text}</li>
+            ))}
+          </ul>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <ToListen />,
+      document.getElementById('root')
+    );class ToListen extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { items: [], text: '' };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+
+      render() {
+        return (
+          <div>
+            <h3>Save Your Favorite Tracks</h3>
+            <TodoList items={this.state.items} />
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="new-todo">
+                Add your favorite tack names to the listen to later!
+              </label>
+              <input
+                id="new-todo"
+                onChange={this.handleChange}
+                value={this.state.text}
+              />
+              <button>
+                Track #{this.state.items.length + 1}
+              </button>
+            </form>
+          </div>
+        );
+      }
+
+      handleChange(e) {
+        this.setState({ text: e.target.value });
+      }
+
+      handleSubmit(e) {
+        e.preventDefault();
+        if (this.state.text.length === 0) {
+          return;
+        }
+        const newItem = {
+          text: this.state.text,
+          id: Date.now()
+        };
+        this.setState(state => ({
+          items: state.items.concat(newItem),
+          text: ''
+        }));
+      }
+    }
+
+    class ToListenList extends React.Component {
+      render() {
+        return (
+          <ul>
+            {this.props.items.map(item => (
+              <li key={item.id}>{item.text}</li>
+            ))}
+          </ul>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <TodoApp />,
+      document.getElementById('root')
+    );
+
+    </script>
+
+    
+  
+
+
+    
+  </aside>
+</section>
+
+
+<footer><h2> </h2>
+<div>
+   <h1>Grammy Award Winning Artist</h1>
+      <a href="https://www.grammy.com/">
+      <img src="grammypic.jpeg" alt="Grammys">
+      </a>
+</div>
+  
+</footer>
+</html>
